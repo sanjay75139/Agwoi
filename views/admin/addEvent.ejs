@@ -1,0 +1,37 @@
+<%-include('./partials/header.ejs')%>
+<!-- Strat of navbar navigation -->
+<%-include('./partials/nav.ejs')%>
+<!-- end of navbar navigation -->
+<link rel="stylesheet" href="/css/main.css">
+<br>
+<h1 style="text-align: center;">
+    Upload image and write description to add event
+</h1>
+<br><br>
+<%if(errorMessage){%>
+    <div class="user-message user-message--error" ><%=errorMessage%></div>
+<%}%>
+<div class="container">
+    <form action="/admin/postEvent" method="post" enctype="multipart/form-data" class="form-group">
+        <label class="form-label" for="image">Add image</label>
+        <input class="form-control"
+            type="file" 
+            name="image" 
+            id="image" required>
+            <small id="emailHelp" class="form-text text-muted">Image type PNG/JPG/JPEG only</small>
+    <br>
+    <br>
+    <div class="form-outline">
+        <label class="form-label" for="head">Title</label>
+        <input type="text" class="form-control" name="title" value="<%=info.title%>" id="head" required/>
+    <br>
+        <label class="form-label" for="textAreaExample">Description</label>
+        <textarea class="form-control" id="textAreaExample" rows="4" name="desc" required><%=info.desc%></textarea>
+        <br>
+    </div>
+        <button type="submit" class="btn btn-primary">Add Event</button>
+    </form>
+</div>
+    <!-- Start Footer Area -->
+    
+	<%-include('./partials/footer.ejs')%>

@@ -1,0 +1,84 @@
+<%-include('./partials/header.ejs')%>
+	<!-- start header Area -->
+	<%-include('./partials/navigation.ejs')%>
+	<!-- end header Area -->
+
+	<style>
+		.card{
+			margin-bottom: 35px;
+		
+		}
+	</style>
+	<!-- start banner Area -->
+	<section class="banner-area">
+		<div class="container">
+			<div class="row banner-content">
+				<div class="col-lg-12 d-flex align-items-center justify-content-between">
+					<div class="left-part">
+						<h1>
+							Events of our Association
+						</h1>
+						<p>
+							We celebrate and conduct events every month. This also includes meetings and conferences. Our members will get notified before any events. We ensure that every members of our association attend all the events.
+						</p>
+					</div>
+					<div class="right-part">
+						<a href="/">home</a>
+						<span class="fa fa-caret-right"></span>
+						<a href="/event">Events</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+
+	<!-- Start Pricing Area -->
+	<section class="pricing-area pricing-page">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="col-lg-6">
+					<div class="section-title text-center">
+						<h2>AGWOI 2022</h2>
+						
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+		<section class="container">
+
+			<div class="row row-cols-1 row-cols-md-2 g-4 ">
+				<%if(events.length>0){%>
+					<%events.forEach((p)=>{%>
+						<div class="col-sm-6 col-lg-4">
+							<div class="card">
+								<img src="/<%=p.image%>" class="card-img-top" alt="<%=p.title%>" height="280"/>
+								<div class="card-body">
+									<h5 class="card-title"><%=p.title%></h5>
+									<p class="card-text">
+										<%=p.desc%>
+									</p>
+								</div>
+							</div>
+						</div>
+					<%})%>
+				<%}else{%>
+					<p>No Events Found..!</p>
+				<%}%>
+				
+			</div>
+		</div>
+	</section>
+	<br>
+	<br>
+	
+	<!-- End Pricing Area -->
+
+	<!-- End about Area -->
+
+	<!-- Start Footer Area -->
+	
+		<%-include('./partials/footer.ejs')%>

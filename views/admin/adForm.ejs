@@ -1,0 +1,205 @@
+<%-include('./partials/header.ejs')%>
+
+    <!-- Strat of navbar navigation -->
+    <%-include('./partials/nav.ejs')%>
+    <!-- end of navbar navigation -->
+            <div class="content">
+                <div class="container">
+                    <div class="page-title">
+                        <h3>Forms</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">Form Validation</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"></h5>
+                                    <form class="needs-validation" novalidate accept-charset="utf-8" action="/admin/save" method="post">
+                                        <div class="form-group">
+                                            <img src="/<%=user.imageUrl%>" alt="profile" width="130" height="170" style="float: right;">
+                                            <input type="text" value="<%=user.imageUrl%>" name="imageUrl" hidden>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Name</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Enter Full name" name="name" value="<%=user.name%>" style="width: 85%;" >
+                                            
+                                        </div>
+                    
+                                        <div class="form-group">
+                                          <label for="exampleInputEmail1">Email Address</label>
+                                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="<%=user.email%>" style="width: 85%;"  placeholder="Enter your mail">
+                                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                        </div>
+                                        
+                                        
+                                        <div>
+                                            <label for="exampleInputEmail1">Gender</label>
+                                        </div>
+                                        <%if(user.radio==="male"){%>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="radio" id="exampleRadios1" value="male" checked >
+                                            <label class="form-check-label" for="exampleRadios1">
+                                              Male
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="radio" id="exampleRadios2" value="female" disabled>
+                                            <label class="form-check-label" for="exampleRadios2">
+                                              Female
+                                            </label>
+                                        </div>
+                                        <%}else{%>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="radio" id="exampleRadios1" value="male" disabled>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                  Male
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="radio" id="exampleRadios2" value="female" checked>
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                  Female
+                                                </label>
+                                            </div>
+                                        <%}%>
+                                        <div class="form-group">
+                                            <label for="phone_number">Number</label>
+                                            <input type="number" class="form-control" id="name" name="num" placeholder="xxxxx xxxxx" value="<%=user.num%>" >
+                                            
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label for="date">DOB</label>
+                                            <input type="date" class="form-control" id="date" value="<%=user.dob%>" name="date" placeholder="DD-MM-YY" >
+                                            
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Your Address</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="address" rows="3" ><%=user.address%></textarea>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Aadhar no</label>
+                                            <input type="number" class="form-control" id="Aadhar" value="<%=user.aadhar%>" name="aadhar" placeholder="Enter 12-digit aadhar number">
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label for="dist">District</label>
+                                            <input type="text" class="form-control" id="dist" name="dist" placeholder="Ex.Madurai"  value="<%=user.district%>">
+                                            
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Your Shop Name</label>
+                                            <input type="text" class="form-control" id="shopname" name="shop" value="<%=user.shop%>"  placeholder="Enter your Shop name">
+                                        </div>
+                    
+                    
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Your Shop Address</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="shopAd"><%=user.shopAd%></textarea>
+                                        </div>
+                    
+                    
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Applicant's Designation </label>
+                                            <input type="text" class="form-control" id="name" value="<%=user.desi%>" name="desi" placeholder="Ex: Manager">
+                                            
+                                        </div>
+                                        <input type="text" value="<%=user._id%>" name="id"  hidden>
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                
+                                                <div class="card-body">
+                                                    <h5 class="card-title">ADMIN</h5>
+                                                    
+                                                        <div class="row g-2">
+                                                            <div class="mb-3 col-md-6">
+                                                                <label for="name" class="form-label">ID CARD serial no</label>
+                                                                <input type="Number" class="form-control" value="<%=user.serial%>" name="serial" placeholder="Enter 12 digit number" required>
+                                                                
+                                                                <div class="valid-feedback">Looks good!</div>
+                                                                <div class="invalid-feedback">Please enter your name.</div>
+                                                            </div>
+                
+                                                            <div class="mb-3 col-md-6">
+                                                                <label for="name" class="form-label">Applicant Name</label>
+                                                                <input type="text" class="form-control" value="<%=user.usname%>" name="usname" placeholder="Enter your name" required>
+                                                                
+                                                                <div class="valid-feedback">Looks good!</div>
+                                                                <div class="invalid-feedback">Please enter your name.</div>
+                                                            </div>
+                
+                                                        </div>
+                                                        <div class="row g-2">
+                                                            <div class="mb-3 col-md-6">
+                                                                <label for="name" class="form-label">Company Name</label>
+                                                                <input type="text" class="form-control" value="<%=user.cname%>" name="cname" placeholder="Enter your company name" required>
+                                                                
+                                                                <div class="valid-feedback">Looks good!</div>
+                                                                <div class="invalid-feedback">Please enter your name.</div>
+                                                            </div>
+                
+                                                            <div class="mb-3 col-md-6">
+                                                                <label for="name" class="form-label">Designation</label>
+                                                                <input type="text" class="form-control" name="udesi" value="<%=user.udesi%>" placeholder="Ex: Manager" required>
+                                                                
+                                                                <div class="valid-feedback">Looks good!</div>
+                                                                <div class="invalid-feedback">Please enter your name.</div>
+                                                            </div>
+                
+                                                        </div>
+                                                        <div class="row g-2">
+                
+                                                            <div class="mb-3 col-md-4">
+                                                                <label for="state" class="form-label">Wings</label>
+                                                                <select name="state" class="form-select" required>
+                                                                    <option value="<%=user.state%>" selected><%=user.state%></option>
+                                                                    <option value="Retailers team">Retailers team</option>
+                                                                    <option value="Garments and Textile team">Garments and Textile team</option>
+                                                                    <option value="Labour team">Labour team</option>
+                                                                    <option value="Job workers team">Job workers team</option>
+                                                                    <option value="Traders team">Traders team</option>
+                                                                    <option value="Readymade Manufacturer team">Readymade Manufacturer team</option>
+                                                                    <option value="Other state Merchants team">Other state Merchants team</option>
+                
+                                                                </select>
+                                                                <div class="valid-feedback">Looks good!</div>
+                                                                <div class="invalid-feedback">Please select a State.</div>
+                                                            </div>
+                                                            <div class="mb-3 col-md-6">
+                                                                <label for="city" class="form-label">District</label>
+                                                                <input type="text" class="form-control" name="district" value="<%=user.udistrict%>" placeholder="Enter your district name" required>
+                                                                <div class="valid-feedback">Looks good!</div>
+                                                                <div class="invalid-feedback">Please enter your District.</div>
+                                                            </div>
+                                                            <div class="mb-3 col-md-6">
+                                                                <label for="amt" class="form-label">Paid Status</label>
+                                                                <input type="text" class="form-control" id="amt" name="amt" placeholder="" value="<%=user.amt%>" required>
+                                                                <div class="valid-feedback">Looks good!</div>
+                                                                <div class="invalid-feedback">Please enter paid status</div>
+                                                            </div>
+                                                            <div class="mb-3 col-md-6">
+                                                                <label for="valid" class="form-label">Validity Status</label>
+                                                                <input type="text" class="form-control" id="valid" name="valid" placeholder="" value="<%=user.validity%>" required>
+                                                                <small id="valid" class="form-text text-muted">Validity only for one year.</small>
+                                                                <div class="valid-feedback">Looks good!</div>
+                                                                <div class="invalid-feedback">Please enter validity status</div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        
+                                                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Update</button>
+                                                    </form>
+                                                    <a href="/admin/index" class="btn btn-danger">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </div>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!-- Start Footer Area -->
+<%-include('./partials/footer.ejs')%>

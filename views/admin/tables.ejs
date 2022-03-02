@@ -1,0 +1,89 @@
+<%-include('./partials/header.ejs')%>
+
+    <!-- Strat of navbar navigation -->
+    <%-include('./partials/nav.ejs')%>
+    <!-- end of navbar navigation -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Material Design Bootstrap -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"> -->
+
+            <div class="content">
+                <div class="container">
+                    <div class="page-title">
+                        <h3>Members Applied</h3>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-md-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header">Peoples who apply to join this Garment</div>
+                                <div class="card-body">
+                                    <p class="card-title"></p>
+                                    <table class="table table-hover" id="dataTables-example" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>District</th>
+                                                <th>Mob No.</th>
+                                                <th>Amount</th>
+                                                <th>Details</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%if(user.length > 0){%>
+                                                <%user.forEach((p,i)=>{%>
+                                                    <tr>
+                                                        <td><%=i+1%></td>
+                                                        <td><%=p.name%></td>
+                                                        <td><%=p.district%></td>
+                                                        <td><%=p.num%></td>
+                                                        <td><%=p.amt%></td>
+                                                        <td><a href="/admin/forms/<%=p._id%>" class="btn btn-primary">View</a></td>
+                                                        <td>
+                                                            <form action="/admin/delete/<%=p._id%>" method="post">
+                                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </td>
+                                                         <!-- Modal
+                                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Are you sure. You want to Remove member</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                    </div>
+                                                                        <form action="/admin/delete/" method="post">
+                                                                        <div class="modal-body form-group">
+                                                                            <button type="submit" class="btn btn-primary">Confirm</button>
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                                </div> -->
+                                                            </div>
+                                                    </tr>
+                                                <%})%>
+                                            <%}else{%>
+                                                <p>No Application Found</p>
+                                            <%}%>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+<!-- Start Footer Area -->
+<%-include('./partials/footer.ejs')%>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>

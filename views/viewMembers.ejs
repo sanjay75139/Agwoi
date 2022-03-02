@@ -1,0 +1,65 @@
+
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/datatables/datatables.min.css" rel="stylesheet">
+    <link href="/assets/css/master.css" rel="stylesheet">
+<!-- start header Area -->
+	<!-- end header Area -->
+
+	<!-- start banner Area -->
+	
+	<div class="content" style="margin-top: 10%;">
+		<div class="container">
+			<a href="/" class="btn btn-primary" data-dismiss="modal" style="float: right;">Home</a>
+			<div class="page-title">
+				<h3>Official Members</h3>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					<div class="card">
+						<div class="card-header">Memeber of this Garment</div>
+						<div class="card-body">
+							<p class="card-title"></p>
+							<table class="table table-hover" id="dataTables-example" width="100%">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Photo</th>
+										<th>Name</th>
+										<th>Wings</th>
+										<th>ShopName</th>
+										<th>District</th>
+										<th>Validity</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%if(form.length > 0){%>
+										<%form.forEach((p,i)=>{%>
+											<tr>
+												<td><%=i+1%></td>
+												<td> <img src="/<%=p.imageUrl%>" alt="User_Pic" width="60" height="80"></td>
+												<td><%=p.name%></td>
+												<td><%=p.state%></td>
+												<td><%=p.shop%></td>
+												<td><%=p.district%></td>
+												<td><%=p.validity%></td>
+											</tr>
+										<%})%>
+									<%}else{%>
+										<p>No members Found</p>
+									<%}%>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+	<!-- End post-content Area -->
+	<%-include('./admin/partials/footer.ejs')%>
+	<!-- Start Footer Area -->
+	
+	

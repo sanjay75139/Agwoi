@@ -1,0 +1,63 @@
+<%-include('./partials/header.ejs')%>
+
+    <!-- Strat of navbar navigation -->
+    <%-include('./partials/nav.ejs')%>
+    <!-- end of navbar navigation -->
+        <div class="content">
+          <div class="container">
+              <div class="page-title">
+                  <h3>Official Members</h3>
+              </div>
+              <div class="row">
+                  
+                  <div class="col-md-12 col-lg-12">
+                      <div class="card">
+                          <div class="card-header">Memeber of this Garment</div>
+                          <div class="card-body">
+                              <p class="card-title"></p>
+                              <table class="table table-hover" id="dataTables-example" width="100%">
+                                  <thead>
+                                      <tr>
+                                          <th>Id</th>
+                                          <th>Photo</th>
+                                          <th>Name</th>
+                                          <th>District</th>
+                                          <th>Validity</th>
+                                          <th>Details</th>
+                                          <th>Mail</th>
+                                          <th>Delete</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <%if(form.length > 0){%>
+                                          <%form.forEach((p,i)=>{%>
+                                              <tr>
+                                                  <td><%=i+1%></td>
+                                                  <td> <img src="/<%=p.imageUrl%>" alt="User_Pic" width="60" height="80"></td>
+                                                  <td><%=p.name%></td>
+                                                  <td><%=p.district%></td>
+                                                  <td><%=p.validity%></td>
+                                                  <td><a href="/admin/adForm/<%=p._id%>" class="btn btn-primary">Edit</a></td>
+                                                  <td><a href="/admin/mail/<%=p._id%>" class="btn btn-warning">Mail</a></td>
+                                                  <td><form action="/admin/ad-delete/<%=p._id%>" method="post">
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                  </td>
+                                              </tr>
+                                          <%})%>
+                                      <%}else{%>
+                                          <p>No members Found</p>
+                                      <%}%>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+  <!-- Start Footer Area -->
+	<%-include('./partials/footer.ejs')%>
